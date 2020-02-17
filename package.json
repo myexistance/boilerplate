@@ -1,0 +1,31 @@
+{
+  "name": "Boilerplate",
+  "version": "1.0.0",
+  "description": "Boilerplate for Joon",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/myexistance/boilerplate.git"
+  },
+  "keywords": [
+    "boilerplate",
+    "joon"
+  ],
+  "author": "Joon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/myexistance/boilerplate/issues"
+  },
+  "homepage": "https://github.com/myexistance/boilerplate#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.1"
+  }
+}
