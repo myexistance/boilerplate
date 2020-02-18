@@ -1,6 +1,15 @@
 const express = require('express')
 const app = express()
 const port = 5000
+const bodyParser = require('body-parser')
+const { User } = require("./models/User")
+
+
+// support parsing of application/json type post data
+app.use(bodyParser.json());
+
+//support parsing of application/x-www-form-urlencoded post data
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const mongoose = require('mongoose')
 mongoose.connect('mongodb+srv://Joon:TruEday80@cluster0-siyyh.mongodb.net/test?retryWrites=true&w=majority', {
@@ -11,6 +20,16 @@ mongoose.connect('mongodb+srv://Joon:TruEday80@cluster0-siyyh.mongodb.net/test?r
 
 app.get('/', (req, res) => res.send('Hello World!'))
 
+app.post('/register', (req, res) => {
 
+  const user = new User(req.body)
+   
+  user.save((err, userInfo) => {
+    if(err) return res.json({ success: false, err })
+    return res.status(200).json({
+        success: true
+    })
+  })
+})
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
